@@ -8,16 +8,16 @@ feature "Get into #new make new task" do
 		fill_in 'task_title', :with => "Testing title"
 		fill_in 'task_content', :with => "Testing content"
 		click_button 'save'
-		expect(page).to have_text("任務列表")
+		expect(page).to have_text("TTesting title")
 	end
 end
 feature "Get into #edit edit task" do
 	scenario "User visit #edit & send request" do
 		visit "tasks/1/edit"
-		fill_in 'task_title', :with => "Testing title"
-		fill_in 'task_content', :with => "Testing content"
+		fill_in 'task_title', :with => "edit title"
+		fill_in 'task_content', :with => "edit content"
 		click_button 'save'
-		expect(page).to have_text("任務列表")
+		expect(page).to have_text("edit title")
 	end
 end
 feature "DELETE a task" do

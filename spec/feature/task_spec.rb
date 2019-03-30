@@ -8,7 +8,7 @@ feature "Get into #new make new task" do
 		fill_in 'task_title', :with => "Testing title"
 		fill_in 'task_content', :with => "Testing content"
 		click_button 'save'
-		expect(page).to have_text("TTesting title")
+		expect(page).to have_text("Testing title")
 	end
 end
 feature "Get into #edit edit task" do

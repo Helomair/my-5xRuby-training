@@ -30,4 +30,11 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  task:
+    title: title
+    content: content
+    extra: extra process
+
+  new_task: new task
+  edit_task: edit
+  delete_task: delete

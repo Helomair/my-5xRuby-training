@@ -2,6 +2,16 @@ require "spec_helper.rb"
 require "rails_helper"
 require 'capybara/rspec'
 
+feature "Get into #index" do
+	scenario "should sorted by create time" do
+		task1 = Task.create(id:"20",title:"title1",content:"content1")
+		task2 = Task.create(id:"10",title:"title2",content:"content2")
+		visit "tasks"
+		page.text.should match("content1 編輯 刪除 title2")
+	end
+end
+
+
 feature "Get into #new make new task" do
 	scenario "User visit #new & send request" do
 		visit "tasks/new"

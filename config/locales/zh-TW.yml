@@ -1,0 +1,13 @@
+"zh-TW":
+  task:
+    list: 任務列表
+    title: 任務名稱
+    content: 任務內容
+    extra: 額外處理
+
+  new_task: 新增任務
+  edit_task: 編輯
+  edit_task_long: 編輯任務
+  delete_task: 刪除
+  delete_confirm: 確認刪除？
+  back_to_list: 回任務列表

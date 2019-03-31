@@ -2,6 +2,9 @@ source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.6.1'
+
+# Use i18n
+gem 'rails-i18n'
 # Add travis
 gem 'travis'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

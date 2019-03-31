@@ -14,7 +14,8 @@ end
 
 feature "Get into #edit edit task" do
 	scenario "User visit #edit & send request" do
-#        visit "tasks/new"
+        Task.create(title:"Testing title",content:"Testing content")
+#       visit "tasks/new"
 #		fill_in 'task_title', :with => "Testing title"
 #		fill_in 'task_content', :with => "Testing content"
 #		click_button 'save'

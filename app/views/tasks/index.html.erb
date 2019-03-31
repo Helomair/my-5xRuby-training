@@ -1,10 +1,10 @@
-<h1> 任務列表 </h1>
+<h1> <%= t("task.list") %> </h1>
 
 <p><%= link_to "中文版", :controller => "tasks", :action => "index", :locale => "zh-TW" %></p>
 <p><%= link_to "English", :controller => "tasks", :action => "index", :locale => "en" %></p>
 
 </br>
-<%= link_to t("new_task"), new_task_path %>
+<%= link_to t("new_task"), new_task_path%>
 
 <table>
     <thead>
@@ -21,7 +21,7 @@
             <td><%= task.content %></td>
             <td>
             <%= link_to t("edit_task"),edit_task_path(task)%>
-            <%= link_to t("delete_task"),task_path(task), method:"delete", data: {confirm:"確認刪除？"} %>
+            <%= link_to t("delete_task"),task_path(task), method:"delete", data: {confirm:t("delete_confirm")} %>
             </td>
         </tr>
         <% end %>

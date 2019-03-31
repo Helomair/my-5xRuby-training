@@ -14,7 +14,11 @@ feature "Get into #new make new task" do
 
 #feature "Get into #edit edit task" do
 	scenario "User visit #edit & send request" do
-		visit "tasks/1/edit"
+        visit "tasks/new"
+		fill_in 'task_title', :with => "Testing title"
+		fill_in 'task_content', :with => "Testing content"
+		click_button 'save'
+        visit "tasks/1/edit"
 		fill_in 'task_title', :with => "edit title"
 		fill_in 'task_content', :with => "edit content"
 		click_button 'save'

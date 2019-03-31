@@ -14,12 +14,8 @@ end
 
 feature "Get into #edit edit task" do
 	scenario "User visit #edit & send request" do
-        Task.create(title:"Testing title",content:"Testing content")
-#       visit "tasks/new"
-#		fill_in 'task_title', :with => "Testing title"
-#		fill_in 'task_content', :with => "Testing content"
-#		click_button 'save'
-        visit "tasks/2/edit"
+        task = Task.create(title:"Testing title",content:"Testing content")
+        visit "tasks/#{task.id}/edit"
 		fill_in 'task_title', :with => "edit title"
 		fill_in 'task_content', :with => "edit content"
 		click_button 'save'
@@ -29,7 +25,8 @@ end
 
 feature "DELETE a task" do
 	scenario "send delete to tasks/1" do
-		page.driver.delete("/tasks/1")
+         task = Task.create(title:"Testing title",content:"Testing content")
+         page.driver.delete("/tasks/#{task.id}")
         expect(page).to have_text("redirected.")
 	end
 end

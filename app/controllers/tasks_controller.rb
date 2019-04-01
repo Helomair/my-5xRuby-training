@@ -17,8 +17,9 @@ class TasksController < ApplicationController
     def create
         @task = Task.new(task_params)
         if @task.save
-            redirect_to tasks_path, notice: "新增任務成功"
+            redirect_to tasks_path, notice: t("new_task_success")
         else
+            flash[:notice] = t("title_nil_error") if @task.errors.any?
             render :new
         end
     end
@@ -27,8 +28,9 @@ class TasksController < ApplicationController
     def update
         @task = Task.find_by(id: params[:id])
         if @task.update(task_params)
-            redirect_to tasks_path, notice: "更新資料成功"
+            redirect_to tasks_path, notice: t("edit_task_success")
         else
+            flash[:notice] = t("title_nil_error") if @task.errors.any?
             render :edit
         end
     end
@@ -37,7 +39,7 @@ class TasksController < ApplicationController
     def destroy
         @task = Task.find_by(id: params[:id])
         @task.destroy if @task
-        redirect_to tasks_path, notice: "任務已刪除！"
+        redirect_to tasks_path, notice: t("delete_task_success")
     end
 
     private

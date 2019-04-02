@@ -8,9 +8,10 @@
 
 <table>
     <thead>
-        <tr>
+        <tr id="task_field">
             <td> <%= t("task.title") %> </td>
             <td> <%= t("task.content") %> </td>
+            <td> <%= t("task.end_time") %> </td>
             <td> <%=t("task.extra") %> </td>
         </tr>
     </thead>
@@ -19,6 +20,7 @@
         <tr>
             <td><%= task.title %></td>
             <td><%= task.content %></td>
+            <td><%= task.end_time %></td>
             <td>
             <%= link_to t("edit_task"),edit_task_path(task)%>
             <%= link_to t("delete_task"),task_path(task), method:"delete", data: {confirm:t("delete_confirm")} %>

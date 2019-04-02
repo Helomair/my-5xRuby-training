@@ -35,6 +35,7 @@ en:
     title: title
     content: content
     extra: extra process
+    end_time: end time
 
   new_task: New Task
   new_task_success: Task created

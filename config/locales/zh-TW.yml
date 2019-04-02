@@ -4,6 +4,7 @@
     title: 任務名稱
     content: 任務內容
     extra: 額外處理
+    end_time: 結束時間
 
   new_task: 新增任務
   new_task_success: 新增任務成功

@@ -6,9 +6,26 @@
 </br>
 <%= link_to t("new_task"), new_task_path%>
 
+</br>
+<div style="margin: 10px 5px 5px 5px">
+    <%= form_tag("/tasks", method: "get") do %>
+        <%= label_tag(:search, t("search_for") ) %>
+        <%= text_field_tag(:search) %>
+        <%= submit_tag( t("submit"), :id=>"send_search" )%>
+    <% end %>
+</div>
+
+</br>
+<div style="margin: 5px 5px 10px 5px">
+    <%= link_to ('<button>'+t("task.all")+'</button>').html_safe, tasks_path(status:nil), id: "all"%>
+    <%= link_to ('<button>'+t("task.waiting")+'</button>').html_safe, tasks_path(status:"0"), id: "waiting"%>
+    <%= link_to ('<button>'+t("task.processing")+'</button>').html_safe, tasks_path(status:"1"), id: "processing"%>
+    <%= link_to ('<button>'+t("task.done")+'</button>').html_safe, tasks_path(status:"2"), id: "done"%>
+</div>
+
 <table>
     <thead>
-        <tr id="task_field">
+        <tr>
             <td> <%= t("task.title") %> </td>
             <td> <%= t("task.content") %> </td>
             <td> <%= t("task.end_time") %> </td>

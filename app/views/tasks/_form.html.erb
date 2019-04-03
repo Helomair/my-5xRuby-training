@@ -9,6 +9,14 @@
     <%= f.label :end_time, t("task.end_time") %>
     <%= f.datetime_local_field :end_time %> </br></br>
 
+	<%= f.label :status, t("task.end_time") %> </br>
+    <%= f.radio_button :status, '0' %>
+    <%= f.label :status_waiting, t("task.waiting") %>
+    <%= f.radio_button :status, '1' %>
+    <%= f.label :status_processing, t("task.processing") %>
+    <%= f.radio_button :status, '2' %>
+    <%= f.label :status_dane, t("task.done") %>
+	</br></br>
     <%= f.submit "Save" , id: "save" %>
 <% end %> 
 

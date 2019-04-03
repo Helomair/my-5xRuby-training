@@ -36,6 +36,11 @@ en:
     content: content
     extra: extra process
     end_time: end time
+    status: status
+    waiting: waiting
+    processing: process
+    done: done
+    all: All
 
   new_task: New Task
   new_task_success: Task created
@@ -47,3 +52,5 @@ en:
   delete_task_success: Task deleted
   back_to_list: Back to List
   title_nil_error: Title connot be null
+  search_for: "Search for:"
+  submit: Submit

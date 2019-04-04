@@ -2,7 +2,7 @@ class TasksController < ApplicationController
 
 
     def index
-        if (params[:status] == nil) && (params[:search] == nil)
+        if (params[:status].nil? ) && (params[:search].nil? )
             @tasks = Task.all.order(:end_time)
         elsif params[:search] != nil
             @tasks = Task.where(title: params[:search]).order(:end_time)

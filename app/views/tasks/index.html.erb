@@ -7,7 +7,7 @@
 <%= link_to t("new_task"), new_task_path%>
 
 </br>
-<div style="margin: 10px 5px 5px 5px">
+<div>
     <%= form_tag("/tasks", method: "get") do %>
         <%= label_tag(:search, t("search_for") ) %>
         <%= text_field_tag(:search) %>
@@ -16,7 +16,7 @@
 </div>
 
 </br>
-<div style="margin: 5px 5px 10px 5px">
+<div>
     <%= link_to ('<button>'+t("task.all")+'</button>').html_safe, tasks_path(status:nil), id: "all"%>
     <%= link_to ('<button>'+t("task.waiting")+'</button>').html_safe, tasks_path(status:"0"), id: "waiting"%>
     <%= link_to ('<button>'+t("task.processing")+'</button>').html_safe, tasks_path(status:"1"), id: "processing"%>

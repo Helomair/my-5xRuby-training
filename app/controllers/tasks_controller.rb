@@ -3,11 +3,11 @@ class TasksController < ApplicationController
 
     def index
         if (params[:status].nil? ) && (params[:search].nil? )
-            @tasks = Task.all.order(end_time: :asc, priority: :desc)
+            @tasks = Task.all.order(status: :asc, end_time: :asc, priority: :desc).page(params[:page]).per(5)
         elsif params[:search] != nil
-            @tasks = Task.where(title: params[:search]).order(end_time: :asc, priority: :desc)
+            @tasks = Task.where(title: params[:search]).order(status: :asc, end_time: :asc, priority: :desc).page(params[:page]).per(5)
         else 
-            @tasks = Task.where(status: params[:status]).order(end_time: :asc, priority: :desc)
+            @tasks = Task.where(status: params[:status]).order(status: :asc, end_time: :asc, priority: :desc).page(params[:page]).per(5)
         end
     end
 

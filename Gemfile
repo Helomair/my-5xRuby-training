@@ -3,6 +3,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.6.1'
 
+gem 'kaminari'
 gem 'faker'
 # Use i18n
 gem 'rails-i18n'

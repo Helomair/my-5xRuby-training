@@ -9,13 +9,13 @@
     <%= f.label :end_time, t("task.end_time") %>
     <%= f.datetime_local_field :end_time %> </br></br>
 
-	<%= f.label :status, t("task.end_time") %> </br>
+    <%= f.label :status, t("task.status.main") %> </br>
     <%= f.radio_button :status, '1' %>
-    <%= f.label :status_waiting, t("task.waiting") %>
+    <%= f.label :status_waiting, t("task.status.waiting") %>
     <%= f.radio_button :status, '2' %>
-    <%= f.label :status_processing, t("task.processing") %>
+    <%= f.label :status_processing, t("task.status.processing") %>
     <%= f.radio_button :status, '3' %>
-    <%= f.label :status_dane, t("task.done") %>
+    <%= f.label :status_dane, t("task.status.done") %>
     </br></br>
 
     <%= f.label :priority, t("task.priority.main") %> </br>

@@ -17,10 +17,10 @@
 
 </br>
 <div>
-    <%= link_to ('<button>'+t("task.all")+'</button>').html_safe, tasks_path(status:nil), id: "all"%>
-    <%= link_to ('<button>'+t("task.waiting")+'</button>').html_safe, tasks_path(status:"1"), id: "waiting"%>
-    <%= link_to ('<button>'+t("task.processing")+'</button>').html_safe, tasks_path(status:"2"), id: "processing"%>
-    <%= link_to ('<button>'+t("task.done")+'</button>').html_safe, tasks_path(status:"3"), id: "done"%>
+    <%= link_to ('<button>'+t("task.status.all")+'</button>').html_safe, tasks_path(status:nil), id: "all"%>
+    <%= link_to ('<button>'+t("task.status.waiting")+'</button>').html_safe, tasks_path(status:"1"), id: "waiting"%>
+    <%= link_to ('<button>'+t("task.status.processing")+'</button>').html_safe, tasks_path(status:"2"), id: "processing"%>
+    <%= link_to ('<button>'+t("task.status.done")+'</button>').html_safe, tasks_path(status:"3"), id: "done"%>
 </div>
 
 <table>
@@ -50,3 +50,6 @@
         <% end %>
     </tbody>
 </table>
+
+</br>
+ <%= paginate @tasks %>

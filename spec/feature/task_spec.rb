@@ -9,9 +9,9 @@ DatabaseCleaner.strategy = :truncation
 
 feature "Get into #index" do
 #	DatabaseCleaner.clean
-	scenario "should sorted by create time" do
-		task1 = Task.create(id:"20",title:"title1",content:"content1",end_time:"2019-07-02T08:30")
-		task2 = Task.create(id:"10",title:"title2",content:"content2",end_time:"2019-07-09T08:30")
+	let!(:task1)  {Task.create(id:"20",title:"title1",content:"content1",end_time:"2019-07-02T08:30",priority:"3")}
+	let!(:task2)  {Task.create(id:"10",title:"title2",content:"content2",end_time:"2019-07-09T08:30",priority:"1")}
+    scenario "should sorted by create time & priority" do
 		visit "tasks"
 		expect(page).to have_text("2019-07-02 08:30:00 +0800 編輯 刪除 title2")
 	end
@@ -19,9 +19,9 @@ end
 
 feature "Behaviors in #index" do
 	# 0 => waiting  1 => processing  2 => done
-	let!(:task1) {Task.create(title:"test1",status:"0")}
-	let!(:task2) {Task.create(title:"test2",status:"1")}
-	let!(:task3) {Task.create(title:"test3",status:"2")}
+	let!(:task1) {Task.create(title:"test1",status:"1")}
+	let!(:task2) {Task.create(title:"test2",status:"2")}
+	let!(:task3) {Task.create(title:"test3",status:"3")}
 
 	scenario "fill_in search_box and search" do
 		visit "tasks"

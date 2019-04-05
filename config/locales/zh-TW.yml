@@ -5,11 +5,23 @@
     content: 任務內容
     extra: 額外處理
     end_time: 結束時間
-    status: 狀態
-    waiting: 待處理
-    processing: 處理中
-    done: 已完成
-    all: 全部
+    status: 
+      main: 狀態
+      waiting: 待處理
+      processing: 處理中
+      done: 已完成
+      "1": 待處理
+      "2": 處理中
+      "3": 已完成
+      all: 全部
+    priority: 
+      main: 優先順序
+      low: 低
+      mid: 中
+      high: 高
+      1: 低
+      2: 中
+      3: 高
 
   new_task: 新增任務
   new_task_success: 新增任務成功

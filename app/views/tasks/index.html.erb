@@ -18,9 +18,9 @@
 </br>
 <div>
     <%= link_to ('<button>'+t("task.all")+'</button>').html_safe, tasks_path(status:nil), id: "all"%>
-    <%= link_to ('<button>'+t("task.waiting")+'</button>').html_safe, tasks_path(status:"0"), id: "waiting"%>
-    <%= link_to ('<button>'+t("task.processing")+'</button>').html_safe, tasks_path(status:"1"), id: "processing"%>
-    <%= link_to ('<button>'+t("task.done")+'</button>').html_safe, tasks_path(status:"2"), id: "done"%>
+    <%= link_to ('<button>'+t("task.waiting")+'</button>').html_safe, tasks_path(status:"1"), id: "waiting"%>
+    <%= link_to ('<button>'+t("task.processing")+'</button>').html_safe, tasks_path(status:"2"), id: "processing"%>
+    <%= link_to ('<button>'+t("task.done")+'</button>').html_safe, tasks_path(status:"3"), id: "done"%>
 </div>
 
 <table>
@@ -28,6 +28,8 @@
         <tr>
             <td> <%= t("task.title") %> </td>
             <td> <%= t("task.content") %> </td>
+            <td> <%= t("task.priority.main") %> </td>
+            <td> <%= t("task.status.main") %> </td>
             <td> <%= t("task.end_time") %> </td>
             <td> <%=t("task.extra") %> </td>
         </tr>
@@ -37,6 +39,8 @@
         <tr>
             <td><%= task.title %></td>
             <td><%= task.content %></td>
+            <td><%= t("task.priority." + (task.priority).to_s ) %></td>
+            <td><%= t("task.status." + (task.status).to_s ) %></td>
             <td><%= task.end_time %></td>
             <td>
             <%= link_to t("edit_task"),edit_task_path(task)%>

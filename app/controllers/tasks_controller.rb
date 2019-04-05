@@ -3,11 +3,11 @@ class TasksController < ApplicationController
 
     def index
         if (params[:status].nil? ) && (params[:search].nil? )
-            @tasks = Task.all.order(:end_time)
+            @tasks = Task.all.order(end_time: :asc, priority: :desc)
         elsif params[:search] != nil
-            @tasks = Task.where(title: params[:search]).order(:end_time)
+            @tasks = Task.where(title: params[:search]).order(end_time: :asc, priority: :desc)
         else 
-            @tasks = Task.where(status: params[:status]).order(:end_time)
+            @tasks = Task.where(status: params[:status]).order(end_time: :asc, priority: :desc)
         end
     end
 
@@ -51,7 +51,7 @@ class TasksController < ApplicationController
     private
     def task_params
         if params[:task][:title] != nil
-            params.require(:task).permit(:title,:content,:end_time,:status)
+            params.require(:task).permit(:title,:content,:end_time,:status,:priority)
         end
     end
 end

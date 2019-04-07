@@ -29,7 +29,6 @@ abort("The Rails environment is running in production mode!") if Rails.env.produ
 # If you are not using ActiveRecord, you can remove these lines.
 begin
   ActiveRecord::Migration.maintain_test_schema!
-  ActiveRecord::Base.establish_connection
 rescue ActiveRecord::PendingMigrationError => e
   puts e.to_s.strip
   exit 1

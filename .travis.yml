@@ -4,4 +4,4 @@ rvm:
 before_install: 
   - gem install bundler -v 1.16.2
   - bundle install
-script: bundle exec rake spec
+script: bundle exec spec

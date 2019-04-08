@@ -1,6 +1,6 @@
 
 require 'capybara/rspec'
-require "spec_helper.rb"
+require "spec_helper"
 require "rails_helper"
 require 'database_cleaner'
 ENV['RAILS_ENV'] = 'test'

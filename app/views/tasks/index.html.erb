@@ -17,10 +17,18 @@
 
 </br>
 <div>
-    <%= link_to ('<button>'+t("task.status.all")+'</button>').html_safe, tasks_path(status:nil), id: "all"%>
-    <%= link_to ('<button>'+t("task.status.waiting")+'</button>').html_safe, tasks_path(status:"1"), id: "waiting"%>
-    <%= link_to ('<button>'+t("task.status.processing")+'</button>').html_safe, tasks_path(status:"2"), id: "processing"%>
-    <%= link_to ('<button>'+t("task.status.done")+'</button>').html_safe, tasks_path(status:"3"), id: "done"%>
+    <%= link_to tasks_path(status: nil), id: "all" do %>
+        <button><%= t("task.status.all") %></button>
+    <% end %>
+    <%= link_to tasks_path(status: "1"), id: "waiting" do %>
+        <button><%= t("task.status.waiting") %></button>
+    <% end %>
+    <%= link_to tasks_path(status: "2"), id: "processing" do %>
+        <button><%= t("task.status.processing") %></button>
+    <% end %>
+    <%= link_to tasks_path(status: "3"), id: "done" do %>
+        <button><%= t("task.status.done") %></button>
+    <% end %>
 </div>
 
 <table>

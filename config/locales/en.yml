@@ -35,7 +35,25 @@ en:
     title: title
     content: content
     extra: extra process
-
+    end_time: end time
+    status: 
+      main: status
+      waiting: waiting
+      processing: processing
+      done: done
+      1: waiting
+      2: processing
+      3: done
+      all: All
+    priority:
+      main: Priority
+      low: low
+      mid: mid
+      high: high
+      "1": low
+      "2": mid
+      "3": high
+ 
   new_task: New Task
   new_task_success: Task created
   edit_task: edit
@@ -46,3 +64,5 @@ en:
   delete_task_success: Task deleted
   back_to_list: Back to List
   title_nil_error: Title connot be null
+  search_for: "Search for:"
+  submit: Submit

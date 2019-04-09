@@ -6,6 +6,28 @@
     <%= f.label :content, t("task.content") %>
     <%= f.text_area :content %> </br></br>
 
+    <%= f.label :end_time, t("task.end_time") %>
+    <%= f.datetime_local_field :end_time %> </br></br>
+
+    <%= f.label :status, t("task.status.main") %> </br>
+    <%= f.radio_button :status, '1' %>
+    <%= f.label :status_waiting, t("task.status.waiting") %>
+    <%= f.radio_button :status, '2' %>
+    <%= f.label :status_processing, t("task.status.processing") %>
+    <%= f.radio_button :status, '3' %>
+    <%= f.label :status_dane, t("task.status.done") %>
+    </br></br>
+
+    <%= f.label :priority, t("task.priority.main") %> </br>
+    <%= f.radio_button :priority, '1' %>
+    <%= f.label :priority_low, t("task.priority.low") %>
+    <%= f.radio_button :priority, '2' %>
+    <%= f.label :priority_mid, t("task.priority.mid") %>
+    <%= f.radio_button :priority, '3' %>
+    <%= f.label :priority_high, t("task.priority.high") %>
+
+    </br></br>
+
     <%= f.submit "Save" , id: "save" %>
 <% end %> 
 

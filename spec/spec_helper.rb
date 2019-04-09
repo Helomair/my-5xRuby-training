@@ -12,11 +12,10 @@
 # the additional setup, and require it from the spec files that actually need
 # it.
 #
-require 'capybara'
-require 'capybara/dsl'
-require 'capybara/rspec'
-require File.expand_path('../../config/environment', __FILE__)
 
+require 'capybara'
+require File.expand_path('../../config/environment/',__FILE__)
+ENV['RAILS_ENV'] ||= 'test'
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 RSpec.configure do |config|
   # rspec-expectations config goes here. You can use an alternate

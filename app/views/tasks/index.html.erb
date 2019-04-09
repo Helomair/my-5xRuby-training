@@ -1,63 +1,72 @@
 <h1> <%= t("task.list") %> </h1>
 
-<p><%= link_to "中文版", :controller => "tasks", :action => "index", :locale => "zh-TW" %></p>
-<p><%= link_to "English", :controller => "tasks", :action => "index", :locale => "en" %></p>
-
-</br>
-<%= link_to t("new_task"), new_task_path%>
-
 </br>
 <div>
-    <%= form_tag("/tasks", method: "get") do %>
-        <%= label_tag(:search, t("search_for") ) %>
-        <%= text_field_tag(:search) %>
-        <%= submit_tag( t("submit"), :id=>"send_search" )%>
+    <%= link_to new_task_path do %>
+        <button class="btn btn-success btn-lg"><%= t("new_task")%></button>
+    <% end %>
+</div>
+
+</br>
+
+<div>
+    <%= form_tag("/tasks", method: "get", :class => "form-inline") do %>
+    <div class="form-group">
+        <%= label_tag :search, t("search_for") %>
+        <%= text_field_tag(:search, "" , :class => "form-control")%>
+    </div>
+    <%= submit_tag( t("submit"), :id=>"send_search", :class => "btn btn-default" )%>
+    </div>
     <% end %>
 </div>
 
 </br>
 <div>
     <%= link_to tasks_path(status: nil), id: "all" do %>
-        <button><%= t("task.status.all") %></button>
+        <button class="btn btn-primary"><%= t("task.status.all") %></button>
     <% end %>
     <%= link_to tasks_path(status: "1"), id: "waiting" do %>
-        <button><%= t("task.status.waiting") %></button>
+        <button class="btn btn-primary"><%= t("task.status.waiting") %></button>
     <% end %>
     <%= link_to tasks_path(status: "2"), id: "processing" do %>
-        <button><%= t("task.status.processing") %></button>
+        <button class="btn btn-primary"><%= t("task.status.processing") %></button>
     <% end %>
     <%= link_to tasks_path(status: "3"), id: "done" do %>
-        <button><%= t("task.status.done") %></button>
+        <button class="btn btn-primary"><%= t("task.status.done") %></button>
     <% end %>
 </div>
-
-<table>
-    <thead>
-        <tr>
-            <td> <%= t("task.title") %> </td>
-            <td> <%= t("task.content") %> </td>
-            <td> <%= t("task.priority.main") %> </td>
-            <td> <%= t("task.status.main") %> </td>
-            <td> <%= t("task.end_time") %> </td>
-            <td> <%=t("task.extra") %> </td>
-        </tr>
-    </thead>
-    <tbody>
-        <% @tasks.each do |task| %>
-        <tr>
-            <td><%= task.title %></td>
-            <td><%= task.content %></td>
-            <td><%= t("task.priority." + (task.priority).to_s ) %></td>
-            <td><%= t("task.status." + (task.status).to_s ) %></td>
-            <td><%= task.end_time %></td>
-            <td>
-            <%= link_to t("edit_task"),edit_task_path(task)%>
-            <%= link_to t("delete_task"),task_path(task), method:"delete", data: {confirm:t("delete_confirm")} %>
-            </td>
-        </tr>
-        <% end %>
-    </tbody>
-</table>
-
+<div style="height: 300px; overflow: auto;">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <td> <%= t("task.title") %> </td>
+                <td> <%= t("task.content") %> </td>
+                <td> <%= t("task.priority.main") %> </td>
+                <td> <%= t("task.status.main") %> </td>
+                <td> <%= t("task.end_time") %> </td>
+                <td> <%=t("task.extra") %> </td>
+            </tr>
+        </thead>
+        <tbody>
+            <% @tasks.each do |task| %>
+            <tr>
+                <td><%= task.title %></td>
+                <td><%= task.content %></td>
+                <td><%= t("task.priority." + (task.priority).to_s ) %></td>
+                <td><%= t("task.status." + (task.status).to_s ) %></td>
+                <td><%= task.end_time %></td>
+                <td>
+                <%= link_to edit_task_path(task) do %>
+                    <button class="btn btn-default btn-sm"><%= t("edit_task") %></button>
+                <% end %>
+                <%= link_to task_path(task), method:"delete", data: {confirm:t("delete_confirm")} do %>
+                    <button class="btn btn-default btn-sm"><%= t("delete_task") %></button>
+                <% end %>
+                </td>
+            </tr>
+            <% end %>
+        </tbody>
+    </table>
+</div>
 </br>
  <%= paginate @tasks %>

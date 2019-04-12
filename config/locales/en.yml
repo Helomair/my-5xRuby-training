@@ -66,3 +66,7 @@ en:
   title_nil_error: Title connot be null
   search_for: "Search for:"
   submit: Submit
+  logout: Logout
+  login_succeed: Login Suceesfully
+  login_failed: Login Failed
+  logged_out: Logged out

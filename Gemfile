@@ -2,7 +2,10 @@ source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.6.1'
+# Use for capybara to keep session
+gem 'rack_session_access'
 
+gem 'bcrypt'
 gem 'bootstrap-sass'
 gem 'rake'
 gem 'rspec-rails'

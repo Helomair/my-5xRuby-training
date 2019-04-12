@@ -70,3 +70,8 @@
 </div>
 </br>
  <%= paginate @tasks %>
+ <div style="margin-right: 100px">
+    <%= link_to logout_path, method:"delete", id: "logout_button" do %>
+        <button class="btn btn-danger btn-lg pull-right"><%= t("logout") %></button>
+    <% end %>
+</div>

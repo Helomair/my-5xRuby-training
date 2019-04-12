@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Task, type: :model do
-	let(:user) {User.create(name:"admin",passwd:"admin",permission:"admin")}
+	let(:user) {User.create(name:"admin",password:"admin",permission:"admin")}
 	it "title is nil" do
 		task = Task.new(title: nil,user_id:"1")
 		user.tasks << task

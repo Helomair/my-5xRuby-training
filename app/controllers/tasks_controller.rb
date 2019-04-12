@@ -1,13 +1,11 @@
 class TasksController < ApplicationController
-
-
     def index
         if params[:status].nil? && params[:search].nil?
-            @tasks = Task.all.order(status: :asc, end_time: :asc, priority: :desc).page(params[:page]).per(5)
+            @tasks = Task.where(user_id: session[:user_id]).order(status: :asc, end_time: :asc, priority: :desc).page(params[:page]).per(5)
         elsif params[:search] != nil
-            @tasks = Task.where(title: params[:search]).order(status: :asc, end_time: :asc, priority: :desc).page(params[:page]).per(5)
+            @tasks = Task.where(title: params[:search],user_id: session[:user_id]).order(status: :asc, end_time: :asc, priority: :desc).page(params[:page]).per(5)
         else 
-            @tasks = Task.where(status: params[:status]).order(status: :asc, end_time: :asc, priority: :desc).page(params[:page]).per(5)
+            @tasks = Task.where(status: params[:status],user_id: session[:user_id]).order(status: :asc, end_time: :asc, priority: :desc).page(params[:page]).per(5)
         end
     end
 
@@ -22,10 +20,12 @@ class TasksController < ApplicationController
     #create new task
     def create
         @task = Task.new(task_params)
-        if @task.save
+        @user = User.find_by(id: session[:user_id])
+        @user.tasks << @task
+        if @user.save
             redirect_to tasks_path, notice: t("new_task_success")
         else
-            flash[:notice] = t("title_nil_error") if @task.errors.any?
+            flash[:notice] = t("title_nil_error") if @user.errors.any?
             render :new
         end
     end

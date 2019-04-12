@@ -14,6 +14,7 @@
 #
 
 require 'capybara'
+require "rack_session_access/capybara"
 require File.expand_path('../../config/environment/',__FILE__)
 ENV['RAILS_ENV'] ||= 'test'
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration

@@ -47,6 +47,7 @@ GEM
     autoprefixer-rails (9.5.1)
       execjs
     backports (3.13.0)
+    bcrypt (3.1.12)
     bindex (0.7.0)
     bootsnap (1.4.3)
       msgpack (~> 1.0)
@@ -155,6 +156,9 @@ GEM
     rack (2.0.7)
     rack-test (1.1.0)
       rack (>= 1.0, < 3)
+    rack_session_access (0.2.0)
+      builder (>= 2.0.0)
+      rack (>= 1.0.0)
     rails (5.2.3)
       actioncable (= 5.2.3)
       actionmailer (= 5.2.3)
@@ -281,6 +285,7 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
+  bcrypt
   bootsnap (>= 1.1.0)
   bootstrap-sass
   byebug
@@ -293,6 +298,7 @@ DEPENDENCIES
   listen (>= 3.0.5, < 3.2)
   pg
   puma (~> 3.11)
+  rack_session_access
   rails (~> 5.2.2, >= 5.2.2.1)
   rails-i18n
   rake

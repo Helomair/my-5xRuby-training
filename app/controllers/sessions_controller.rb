@@ -1,11 +1,10 @@
 class SessionsController < ApplicationController
   skip_before_action :authorize
 
-  def login
-
+  def new
   end
 
-  def verify
+  def create
   	user = User.find_by(name: params[:name])
   	if user and user.authenticate(params[:password])
   		session[:user_id] = user.id

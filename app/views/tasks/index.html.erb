@@ -59,7 +59,7 @@
                 <%= link_to edit_task_path(task) do %>
                     <button class="btn btn-default btn-sm"><%= t("edit_task") %></button>
                 <% end %>
-                <%= link_to task_path(task), method:"delete", data: {confirm:t("delete_confirm")} do %>
+                <%= link_to task_path(task), method:"delete", data: {confirm:t("delete_confirm")}, id: task.id do %>
                     <button class="btn btn-default btn-sm"><%= t("delete_task") %></button>
                 <% end %>
                 </td>

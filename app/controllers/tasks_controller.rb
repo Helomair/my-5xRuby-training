@@ -1,4 +1,5 @@
 class TasksController < ApplicationController
+
     def index
         if params[:status].nil? && params[:search].nil?
             @tasks = Task.where(user_id: session[:user_id]).order(status: :asc, end_time: :asc, priority: :desc).page(params[:page]).per(5)

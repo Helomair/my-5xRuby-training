@@ -188,12 +188,11 @@ feature "Start test" do
 	end
 
 	feature "DELETE a task" do
-		let(:task) {Task.new(title:"Testing title",content:"Testing content")}
-		before :each do
-	        user.tasks << task
-		end
+		let!(:task) {Task.create(title:"Testing title",content:"Testing content",user_id:"1")}
 
 		scenario "Can't send delete to tasks/{task.id} without Login" do
+			visit "/"
+			expect(page).to have_text("Please log in")
 	        page.driver.delete("/tasks/#{task.id}")
 	        expect(page).to have_text("Please log in")
 		end
@@ -201,10 +200,15 @@ feature "Start test" do
 			visit "login"
 			fill_in "name", :with => "admin"
 			fill_in "password", :with => "admin"
-			click_button "login"
+			click_button "login", wait: 10
 
 	        page.driver.delete("/tasks/#{task.id}")
-	        expect(page).to have_text("redirected.")
+	#        page.accept_confirm do
+	#			click_link '確認刪除？'
+	#		end
+	        expect(page).to_not have_text("Testing title")
+	#        field.should be_present
+	#		expect { page.find('#'+(task.id).to_s).click }.to change(Task, :count).by(-1)
 		end
 	end
 

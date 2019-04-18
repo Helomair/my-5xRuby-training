@@ -194,7 +194,7 @@ feature "Start test" do
 			visit "/"
 			expect(page).to have_text("Please log in")
 	        page.driver.delete("/tasks/#{task.id}")
-	        expect(page).to have_text("Please log in")
+	        expect(page).to have_text("redirected")
 		end
 		scenario "Send delete to tasks/{task.id}, Logged in" do
 			visit "login"

@@ -194,21 +194,15 @@ feature "Start test" do
 			visit "/"
 			expect(page).to have_text("Please log in")
 	        page.driver.delete("/tasks/#{task.id}")
-	        expect(page).to have_text("redirected")
+	        expect(page).to have_text("Please log in")
 		end
 		scenario "Send delete to tasks/{task.id}, Logged in" do
 			visit "login"
 			fill_in "name", :with => "admin"
 			fill_in "password", :with => "admin"
 			click_button "login", wait: 10
-
 	        page.driver.delete("/tasks/#{task.id}")
-	#        page.accept_confirm do
-	#			click_link '確認刪除？'
-	#		end
 	        expect(page).to_not have_text("Testing title")
-	#        field.should be_present
-	#		expect { page.find('#'+(task.id).to_s).click }.to change(Task, :count).by(-1)
 		end
 	end
 

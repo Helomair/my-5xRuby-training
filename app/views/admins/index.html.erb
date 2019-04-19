@@ -1,0 +1,41 @@
+<div>
+    <%= link_to new_admin_path do %>
+        <button class="btn btn-success btn-lg"><%= t("user.new")%></button>
+    <% end %>
+</div>
+
+</br>
+
+<div style="height: 300px; overflow: auto;">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <td> <%= t("user.id") %> </td>
+                <td> <%= t("user.name") %> </td>
+                <td> <%= t("user.permission")%> </td>
+                <td> <%= t("user.create_time") %> </td>
+                <td> <%=t("user.extra") %> </td>
+            </tr>
+        </thead>
+        <tbody>
+            <% @users.each do |user| %>
+            <tr>
+                <td><%= user.id %></td>
+                <td><%= user.name %></td>
+                <td><%= user.permission %></td>
+                <td><%= user.created_at %></td>
+                <td>
+                <%= link_to edit_admin_path(user) do %>
+                    <button class="btn btn-default btn-sm"><%= t("edit") %></button>
+                <% end %>
+                <%= link_to admin_path(user), method:"delete", data: {confirm:t("delete_confirm")}, id: user.id do %>
+                    <button class="btn btn-default btn-sm"><%= t("delete") %></button>
+                <% end %>
+                </td>
+            </tr>
+            <% end %>
+        </tbody>
+    </table>
+</div>
+
+ <%= paginate @users %>

@@ -5,6 +5,7 @@
     content: 任務內容
     extra: 額外處理
     end_time: 結束時間
+    new: 新增任務
     status: 
       main: 狀態
       waiting: 待處理
@@ -23,20 +24,38 @@
       2: 中
       3: 高
 
-  new_task: 新增任務
+  user:
+    id: 編號
+    name: 名稱
+    permission: 權限
+    create_time: 新增時間
+    extra: 額外處裡
+    new: 新增用戶
+    edit: 編輯用戶
+    password: 密碼
+    create:
+      succeed: 新增使用者成功
+    update:
+      succeed: 編輯使用者成功
+
   new_task_success: 新增任務成功
-  edit_task: 編輯
+  edit: 編輯
   edit_task_long: 編輯任務
   edit_task_success: 更新任務成功
-  delete_task: 刪除
+  delete: 刪除
   delete_confirm: 確認刪除？
   delete_task_success: 任務已刪除！
   back_to_list: 回任務列表
+  back_to_admins: 回管理列表
   title_nil_error: 標題不可為空
+  name_nil_error: 名稱不可為空
   search_for: 搜索：
   submit: 送出
   logout: 登出
   login_succeed: 登入成功
   login_failed: 登入失敗
   logged_out: 已登出
+  admin_controll: 管理頁面
+  permission_passed: 認證通過
+  permission_denied: 認證失敗
 

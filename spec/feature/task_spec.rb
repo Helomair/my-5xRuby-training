@@ -188,8 +188,10 @@ feature "Start test" do
 	end
 
 	feature "DELETE a task" do
-		let!(:task) {Task.create(title:"Testing title",content:"Testing content",user_id:"1")}
-
+		let(:task) {Task.new(title:"Testing title",content:"Testing content")}
+		before :each do
+	        user.tasks << task
+		end
 		scenario "Can't send delete to tasks/{task.id} without Login" do
 			visit "/"
 			expect(page).to have_text("Please log in")

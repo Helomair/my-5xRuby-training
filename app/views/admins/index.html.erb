@@ -14,6 +14,7 @@
                 <td> <%= t("user.name") %> </td>
                 <td> <%= t("user.permission")%> </td>
                 <td> <%= t("user.create_time") %> </td>
+                <td> <%= t("user.count") %> </td>
                 <td> <%=t("user.extra") %> </td>
             </tr>
         </thead>
@@ -24,7 +25,11 @@
                 <td><%= user.name %></td>
                 <td><%= user.permission %></td>
                 <td><%= user.created_at %></td>
+                <td><%= user.tasks.count %></td>
                 <td>
+                <%= link_to admin_path(user) do %>
+                    <button class="btn btn-default btn-sm"><%= t("user.tasks") %></button>
+                <% end %>
                 <%= link_to edit_admin_path(user) do %>
                     <button class="btn btn-default btn-sm"><%= t("edit") %></button>
                 <% end %>

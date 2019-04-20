@@ -57,10 +57,10 @@
                 <td><%= task.end_time %></td>
                 <td>
                 <%= link_to edit_task_path(task) do %>
-                    <button class="btn btn-default btn-sm"><%= t("edit_task") %></button>
+                    <button class="btn btn-default btn-sm"><%= t("edit") %></button>
                 <% end %>
                 <%= link_to task_path(task), method:"delete", data: {confirm:t("delete_confirm")}, id: task.id do %>
-                    <button class="btn btn-default btn-sm"><%= t("delete_task") %></button>
+                    <button class="btn btn-default btn-sm"><%= t("delete") %></button>
                 <% end %>
                 </td>
             </tr>

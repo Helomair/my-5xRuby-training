@@ -64,6 +64,8 @@ en:
     new: New User
     edit: Edit User
     password: Password
+    count: Tasks Num
+    tasks: Check
     create:
       succeed: User Created!
     update:
@@ -76,6 +78,8 @@ en:
   delete: delete
   delete_confirm: Are you sure?
   delete_task_success: Task deleted
+  delete_user_success: User deleted
+  delete_user_failed: Delete User Failed
   back_to_list: Back to List
   back_to_admins: Back to Admins
   title_nil_error: Title cannot be null

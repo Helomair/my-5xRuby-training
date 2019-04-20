@@ -33,6 +33,8 @@
     new: 新增用戶
     edit: 編輯用戶
     password: 密碼
+    count: 任務數量
+    tasks: 查看
     create:
       succeed: 新增使用者成功
     update:
@@ -45,6 +47,8 @@
   delete: 刪除
   delete_confirm: 確認刪除？
   delete_task_success: 任務已刪除！
+  delete_user_success: 用戶已刪除！
+  delete_user_failed: 刪除用戶失敗！
   back_to_list: 回任務列表
   back_to_admins: 回管理列表
   title_nil_error: 標題不可為空

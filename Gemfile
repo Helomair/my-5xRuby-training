@@ -2,7 +2,10 @@ source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.6.1'
+# Use for capybara to keep session
+gem 'rack_session_access'
 
+gem 'bcrypt'
 gem 'bootstrap-sass'
 gem 'rake'
 gem 'rspec-rails'
@@ -66,7 +69,8 @@ group :test do
   gem 'selenium-webdriver'
   gem 'database_cleaner'
   # Easy installation and use of chromedriver to run system tests with Chrome
-  gem 'chromedriver-helper'
+  #gem 'chromedriver-helper'
+  gem 'webdrivers'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

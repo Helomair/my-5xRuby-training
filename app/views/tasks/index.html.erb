@@ -59,7 +59,7 @@
                 <%= link_to edit_task_path(task) do %>
                     <button class="btn btn-default btn-sm"><%= t("edit_task") %></button>
                 <% end %>
-                <%= link_to task_path(task), method:"delete", data: {confirm:t("delete_confirm")} do %>
+                <%= link_to task_path(task), method:"delete", data: {confirm:t("delete_confirm")}, id: task.id do %>
                     <button class="btn btn-default btn-sm"><%= t("delete_task") %></button>
                 <% end %>
                 </td>
@@ -70,3 +70,8 @@
 </div>
 </br>
  <%= paginate @tasks %>
+ <div style="margin-right: 100px">
+    <%= link_to logout_path, method:"delete", id: "logout_button" do %>
+        <button class="btn btn-danger btn-lg pull-right"><%= t("logout") %></button>
+    <% end %>
+</div>

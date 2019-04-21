@@ -32,10 +32,12 @@
 en:
   task:
     list: Tasks
-    title: title
-    content: content
-    extra: extra process
-    end_time: end time
+    title: Title
+    content: Content
+    tags: Tags
+    extra: Extra Process
+    end_time: End Time
+    new: New Task
     status: 
       main: status
       waiting: waiting
@@ -53,20 +55,42 @@ en:
       "1": low
       "2": mid
       "3": high
+
+  user:
+    id: ID
+    name: Name
+    permission: Permission
+    create_time: Created Time
+    extra: Extra
+    new: New User
+    edit: Edit User
+    password: Password
+    count: Tasks Num
+    tasks: Check
+    create:
+      succeed: User Created!
+    update:
+      succeed: User Updated!
  
-  new_task: New Task
   new_task_success: Task created
-  edit_task: edit
+  edit: edit
   edit_task_long: Edit Task
   edit_task_success: Task updated
-  delete_task: delete
+  delete: delete
   delete_confirm: Are you sure?
   delete_task_success: Task deleted
+  delete_user_success: User deleted
+  delete_user_failed: Delete User Failed
   back_to_list: Back to List
-  title_nil_error: Title connot be null
+  back_to_admins: Back to Admins
+  title_nil_error: Title cannot be null
+  name_nil_error: Name cannot be null
   search_for: "Search for:"
   submit: Submit
   logout: Logout
   login_succeed: Login Suceesfully
   login_failed: Login Failed
   logged_out: Logged out
+  admin_controll: Admin
+  permission_passed: Welcome Admin
+  permission_denied: Permission Denied

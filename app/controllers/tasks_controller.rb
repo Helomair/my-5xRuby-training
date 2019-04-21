@@ -4,7 +4,14 @@ class TasksController < ApplicationController
         if params[:status].nil? && params[:search].nil?
             @tasks = Task.where(user_id: session[:user_id]).order(status: :asc, end_time: :asc, priority: :desc).page(params[:page]).per(5)
         elsif params[:search] != nil
-            @tasks = Task.where(title: params[:search],user_id: session[:user_id]).order(status: :asc, end_time: :asc, priority: :desc).page(params[:page]).per(5)
+            @tasks = Task.where(user_id: session[:user_id]).order(status: :asc, end_time: :asc, priority: :desc).page(params[:page]).per(5)
+            if tags_search
+                @tasks = @tasks.where(tag_public: 1) if params[:search] == "公事"
+                @tasks = @tasks.where(tag_private: 1) if params[:search] == "私事"
+                @tasks = @tasks.where(tag_urgent: 1) if params[:search] == "緊急"
+            else
+                @tasks = @tasks.where(title: params[:search])
+            end
         else 
             @tasks = Task.where(status: params[:status],user_id: session[:user_id]).order(status: :asc, end_time: :asc, priority: :desc).page(params[:page]).per(5)
         end
@@ -50,9 +57,14 @@ class TasksController < ApplicationController
     end
 
     private
+
     def task_params
         if params[:task][:title] != nil
-            params.require(:task).permit(:title,:content,:end_time,:status,:priority)
+            params.require(:task).permit(:title, :content, :end_time, :status, :priority, :tag_public, :tag_private, :tag_urgent)
         end
+    end
+
+    def tags_search
+        return true if (params[:search] == "公事") || (params[:search] == "私事") || (params[:search] == "緊急")
     end
 end

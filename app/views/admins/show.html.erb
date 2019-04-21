@@ -1,0 +1,28 @@
+<h1> <%= @user.name %> </h1>
+
+<div style="height: 300px; overflow: auto;">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <td> <%= t("task.title") %> </td>
+                <td> <%= t("task.content") %> </td>
+                <td> <%= t("task.priority.main") %> </td>
+                <td> <%= t("task.status.main") %> </td>
+                <td> <%= t("task.end_time") %> </td>
+            </tr>
+        </thead>
+        <tbody>
+            <% @tasks.each do |task| %>
+            <tr>
+                <td><%= task.title %></td>
+                <td><%= task.content %></td>
+                <td><%= t("task.priority." + (task.priority).to_s ) %></td>
+                <td><%= t("task.status." + (task.status).to_s ) %></td>
+                <td><%= task.end_time %></td>
+            </tr>
+            <% end %>
+        </tbody>
+    </table>
+</div>
+</br>
+ <%= paginate @tasks %>

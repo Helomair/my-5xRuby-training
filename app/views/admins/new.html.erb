@@ -1,0 +1,19 @@
+<h1><%= t("user.new") %></h1>
+
+<%= form_for(@user, url: admins_path, action: "create") do |u| %>
+    <%= u.label :name, t("user.name") %>
+    <%= u.text_field :name %> </br></br>
+
+    <%= u.label :password, t("user.password") %>
+    <%= u.text_field :password %> </br></br>
+
+    <%= u.label :permission, t("user.permission") %>
+    <%= u.select :permission do %>
+    <%= options_for_select([ ['Admin', 'admin'], ['User', 'user'] ], 'user') %> 
+	<% end %></br></br>
+
+    <%= u.submit "Save" , id: "save" %>
+<% end %> 
+</br>
+
+<%= link_to t("back_to_admins"), admins_path %>

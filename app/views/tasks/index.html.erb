@@ -3,7 +3,7 @@
 </br>
 <div>
     <%= link_to new_task_path do %>
-        <button class="btn btn-success btn-lg"><%= t("new_task")%></button>
+        <button class="btn btn-success btn-lg"><%= t("task.new")%></button>
     <% end %>
 </div>
 
@@ -43,6 +43,7 @@
                 <td> <%= t("task.content") %> </td>
                 <td> <%= t("task.priority.main") %> </td>
                 <td> <%= t("task.status.main") %> </td>
+                <td> <%= t("task.tags.main") %></td>
                 <td> <%= t("task.end_time") %> </td>
                 <td> <%=t("task.extra") %> </td>
             </tr>
@@ -54,14 +55,25 @@
                 <td><%= task.content %></td>
                 <td><%= t("task.priority." + (task.priority).to_s ) %></td>
                 <td><%= t("task.status." + (task.status).to_s ) %></td>
+                <td>
+                    <% if task.tag_public == 1 %>
+                        <span class="label label-primary"> <%= t("task.tags.public") %> </span>
+                    <% end %>
+                    <% if task.tag_private == 1 %>
+                        <span class="label label-warning"> <%= t("task.tags.private")%> </span>
+                    <% end %>
+                    <% if task.tag_urgent == 1 %>
+                        <span class="label label-danger"> <%= t("task.tags.urgent") %> </span>
+                    <% end %>
+                </td>
                 <td><%= task.end_time %></td>
                 <td>
-                <%= link_to edit_task_path(task) do %>
-                    <button class="btn btn-default btn-sm"><%= t("edit_task") %></button>
-                <% end %>
-                <%= link_to task_path(task), method:"delete", data: {confirm:t("delete_confirm")}, id: task.id do %>
-                    <button class="btn btn-default btn-sm"><%= t("delete_task") %></button>
-                <% end %>
+                    <%= link_to edit_task_path(task) do %>
+                        <button class="btn btn-default btn-sm"><%= t("edit") %></button>
+                    <% end %>
+                    <%= link_to task_path(task), method:"delete", data: {confirm:t("delete_confirm")}, id: task.id do %>
+                        <button class="btn btn-default btn-sm"><%= t("delete") %></button>
+                    <% end %>
                 </td>
             </tr>
             <% end %>

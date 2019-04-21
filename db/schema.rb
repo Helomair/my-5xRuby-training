@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_11_131123) do
+ActiveRecord::Schema.define(version: 2019_04_21_081600) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,7 +23,10 @@ ActiveRecord::Schema.define(version: 2019_04_11_131123) do
     t.datetime "end_time"
     t.integer "status", default: 1, null: false
     t.integer "priority", default: 1, null: false
-    t.integer "user_id", default: 1
+    t.integer "user_id", default: 0
+    t.integer "tag_public", default: 0
+    t.integer "tag_private", default: 0
+    t.integer "tag_urgent", default: 0
   end
 
   create_table "users", force: :cascade do |t|

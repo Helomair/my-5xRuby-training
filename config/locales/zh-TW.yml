@@ -3,6 +3,11 @@
     list: 任務列表
     title: 任務名稱
     content: 任務內容
+    tags:
+      main: 標籤
+      public: 公事
+      private: 私事
+      urgent: 緊急
     extra: 額外處理
     end_time: 結束時間
     new: 新增任務

@@ -32,10 +32,11 @@
 en:
   task:
     list: Tasks
-    title: title
-    content: content
-    extra: extra process
-    end_time: end time
+    title: Title
+    content: Content
+    tags: Tags
+    extra: Extra Process
+    end_time: End Time
     new: New Task
     status: 
       main: status

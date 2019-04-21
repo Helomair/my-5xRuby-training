@@ -60,7 +60,7 @@ class AdminsController < ApplicationController
 	def check_permission
 		user = User.find_by(id: session[:user_id])
 		unless user.permission == "admin"
-			redirect_to root_url, notice: t("permission_denied")
+			render :status => 401, notice: t("permission_denied")
 		end
 	end
 
